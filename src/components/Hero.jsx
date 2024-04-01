@@ -14,9 +14,9 @@ const Hero = () => {
         <div className="flex gap-4">
           <button
             type='button'
-            //   onClick={() =>
-            //     window.open("https://github.com/TidbitsJS/Summize", "_blank")
-            //   }
+              onClick={() =>
+                 window.open("https://github.com/kh-mahmoud/AI_Lite_Sum_Tool", "_blank")
+             }
             className='black_btn'
           >
             GitHub
