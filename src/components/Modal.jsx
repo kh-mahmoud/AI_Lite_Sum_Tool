@@ -29,7 +29,7 @@ const Modals = ({ isOpen, setIsOpen }) => {
     {
        localStorage.removeItem("lang")
        localStorage.setItem("lang",JSON.stringify(selectedLanguage))
-
+       setIsOpen(false)
     },[selectedLanguage])
 
 
