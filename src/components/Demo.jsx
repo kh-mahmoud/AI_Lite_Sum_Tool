@@ -66,7 +66,7 @@ const Demo = () => {
       e.preventDefault()
       try {
          setisSummarize(true)
-         setArticle({ ...article, url: "", summary: "" }),
+         setArticle({ ...article, url: "", summary: "" })
          const { data } = await Summurizer(article.url)
 
          if (data?.summary) {
