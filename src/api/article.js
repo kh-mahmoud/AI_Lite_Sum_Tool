@@ -1,5 +1,4 @@
 import axios from "axios"
-import state from "../store";
 
 
 const RapidAPI_Key = import.meta.env.VITE_RAPID_API_KEY
