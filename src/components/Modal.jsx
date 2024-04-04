@@ -10,6 +10,7 @@ import {
     Button
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
+import state from "../store"
 
 
 
@@ -29,9 +30,10 @@ const Modals = ({ isOpen, setIsOpen }) => {
     {
        localStorage.removeItem("lang")
        localStorage.setItem("lang",JSON.stringify(selectedLanguage))
-
+       setIsOpen(false)
     },[selectedLanguage])
 
+    state.lang=selectedLanguage
 
  
 

@@ -4,6 +4,8 @@ import { copy, linkIcon, loader, tick, submit, close, trash } from "../assets";
 import { Summurizer } from "../api/article";
 import { Tooltip } from '@chakra-ui/react'
 import { ReactTyped } from "react-typed";
+import { useSnapshot } from "valtio";
+import state from "../store";
 
 
 
@@ -22,7 +24,7 @@ const Demo = () => {
    const [copied, setCopied] = useState("")
    const [typed, setTyped] = useState(false)
 
-   const lang=JSON.parse(localStorage.getItem('lang'))
+   const snap=useSnapshot(state)
 
    useEffect(() => {
       try {
@@ -68,7 +70,7 @@ const Demo = () => {
          const { data } = await Summurizer(article.url)
           
          if (data?.summary) {
-            const newArticle = { ...article, summary: data.summary, lang }
+            const newArticle = { ...article, summary: data.summary, lang:snap.lang }
             const updateArticle = [newArticle, ...allArticles]
             setArticle(newArticle)
             setAllArticles(updateArticle)
