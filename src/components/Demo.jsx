@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { copy, linkIcon, loader, tick, submit, close, trash } from "../assets";
 import { Summurizer } from "../api/article";
 import { Tooltip } from '@chakra-ui/react'
-import { useSnapshot } from "valtio";
-import state from "../store";
 import { ReactTyped } from "react-typed";
 
 
@@ -22,8 +20,9 @@ const Demo = () => {
    const [isSummarize, setisSummarize] = useState(false)
    const [slectedArticle, setSelectedArticle] = useState(false)
    const [copied, setCopied] = useState("")
-   const snap = useSnapshot(state)
    const [typed, setTyped] = useState(false)
+
+   const lang=JSON.parse(localStorage.getItem('lang'))
 
    useEffect(() => {
       try {
@@ -67,9 +66,9 @@ const Demo = () => {
       try {
          setisSummarize(true)
          const { data } = await Summurizer(article.url)
-
+          
          if (data?.summary) {
-            const newArticle = { ...article, summary: data.summary, lang: snap.lang }
+            const newArticle = { ...article, summary: data.summary, lang }
             const updateArticle = [newArticle, ...allArticles]
             setArticle(newArticle)
             setAllArticles(updateArticle)
