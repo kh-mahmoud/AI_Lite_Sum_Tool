@@ -11,7 +11,7 @@ const Hero = () => {
     <header className='w-full flex justify-center items-center flex-col'>
       <nav className='flex justify-between items-center w-full mb-10 pt-3'>
         <img src={logo} alt='sumz_logo' className='w-28 object-contain' />
-        <div className="flex gap-4 group">
+        <div className="flex gap-4">
           <button
             type='button'
               onClick={() =>
@@ -21,7 +21,7 @@ const Hero = () => {
           >
             GitHub
           </button>
-          <img onClick={() => setIsOpen((prev) => !prev)} className="cursor-pointer group-hover:rotate-45 transition duration-300 ease-in-out" src={settings} alt="settings" />
+          <img onClick={() => setIsOpen((prev) => !prev)} className="cursor-pointer hover:rotate-45 transition duration-300 ease-in-out" src={settings} alt="settings" />
         </div>
         <Modals isOpen={isOpen} setIsOpen={setIsOpen} />
       </nav>
