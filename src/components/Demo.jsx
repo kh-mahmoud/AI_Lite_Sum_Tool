@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 import { copy, linkIcon, loader, tick, submit, close, trash } from "../assets";
-import { Summurizer } from "../api/article";
 import { Tooltip } from '@chakra-ui/react'
 import { ReactTyped } from "react-typed";
 import { useSnapshot } from "valtio";
 import state from "../store";
+import {Summarizer} from "../api/article"
 
 
 
@@ -67,7 +67,7 @@ const Demo = () => {
       e.preventDefault()
       try {
          setisSummarize(true)
-         const { data } = await Summurizer(article.url)
+         const data  = await Summarizer(article.url)
           
          if (data?.summary) {
             const newArticle = { ...article, summary: data.summary, lang:snap.lang }
